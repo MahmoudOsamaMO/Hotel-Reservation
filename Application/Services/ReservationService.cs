@@ -1,4 +1,5 @@
-﻿using Domain.Interfaces;
+﻿using Application.Interfaces;
+using Domain.Interfaces;
 using Domain.Models;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Application.Services
 {
-    public class ReservationService
+    public class ReservationService : IReservationService
     {
         private readonly ICustomerRepository _customerRepository;
         private readonly IRoomRepository _roomRepository;
