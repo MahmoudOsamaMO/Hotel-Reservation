@@ -2,14 +2,13 @@
 using Application.Interfaces;
 using Domain.Models;
 using Microsoft.AspNetCore.Mvc;
-using reserve.hotel.Controllers;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace hotel.reservation.Api.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("[controller]")]
     public class ReservationController : ControllerBase
     {
 

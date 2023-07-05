@@ -1,24 +1,24 @@
-<h1 id="tableLabel">Weather forecast</h1>
+<h1 id="tableLabel">Rooms</h1>
 
-<p>This component demonstrates fetching data from the server.</p>
+<p>Rooms.</p>
 
-<p *ngIf="!forecasts"><em>Loading...</em></p>
+<p *ngIf="!rooms"><em>Loading...</em></p>
 
-<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="forecasts">
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="rooms">
   <thead>
     <tr>
-      <th>Date</th>
-      <th>Temp. (C)</th>
-      <th>Temp. (F)</th>
-      <th>Summary</th>
+      <th>Room Number</th>
+      <th>Room Type</th>
+      <th>Price Per Night</th>
+      <th>Number Of Beds</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let forecast of forecasts">
-      <td>{{ forecast.date }}</td>
-      <td>{{ forecast.temperatureC }}</td>
-      <td>{{ forecast.temperatureF }}</td>
-      <td>{{ forecast.summary }}</td>
+    <tr *ngFor="let room of rooms">
+      <td>{{ room.roomNumber }}</td>
+      <td>{{ room.roomType }}</td>
+      <td>{{ room.pricePerNight }}</td>
+      <td>{{ room.numberOfBeds }}</td>
     </tr>
   </tbody>
 </table>
