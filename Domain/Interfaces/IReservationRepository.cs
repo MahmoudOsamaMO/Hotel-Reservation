@@ -9,7 +9,7 @@ namespace Domain.Interfaces
 {
     public interface IReservationRepository : IGenericRepository<Reservation>
     {
-
+        Task<Reservation> ReserveRoom(Reservation reservation);
     }
 
 }

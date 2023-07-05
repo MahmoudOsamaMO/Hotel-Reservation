@@ -65,10 +65,6 @@ namespace Infrastructure.Migrations
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
 
-                    b.Property<string>("CustomerName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("NumberOfNights")
                         .HasColumnType("int");
 
@@ -77,10 +73,6 @@ namespace Infrastructure.Migrations
 
                     b.Property<int>("RoomId")
                         .HasColumnType("int");
-
-                    b.Property<string>("RoomNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("TotalPrice")
                         .HasColumnType("decimal(18,2)");
@@ -122,6 +114,35 @@ namespace Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Rooms");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Floor = 0,
+                            NumberOfBeds = 1,
+                            PricePerNight = 10m,
+                            RoomNumber = "A1",
+                            RoomType = "standard"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Floor = 0,
+                            NumberOfBeds = 2,
+                            PricePerNight = 20m,
+                            RoomNumber = "A2",
+                            RoomType = "suite"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Floor = 0,
+                            NumberOfBeds = 3,
+                            PricePerNight = 50m,
+                            RoomNumber = "B1",
+                            RoomType = "deluxe"
+                        });
                 });
 
             modelBuilder.Entity("Domain.Models.Reservation", b =>

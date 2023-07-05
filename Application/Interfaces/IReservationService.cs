@@ -1,4 +1,5 @@
-﻿using Domain.Models;
+﻿using Application.DTOs;
+using Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,8 @@ namespace Application.Interfaces
 {
     public interface IReservationService
     {
-        void CreateReservation(Reservation reservation);
+        bool CreateReservation(ReservationDTO reservationDTO);
+        bool CreateCustomer(CustomerDTO customerDTO);
+        List<Room> GetRooms();
     }
 }

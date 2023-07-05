@@ -20,6 +20,35 @@ namespace Infrastructure
         public DbSet<Reservation> Reservations { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            SeedRooms(modelBuilder);
+        }
+        public void SeedRooms(ModelBuilder modelBuilder)
+        {
+            List<Room> rooms = new List<Room>();
+            rooms.Add(new Room { 
+                Id= 1,
+                RoomNumber="A1",
+                NumberOfBeds=1,
+                PricePerNight=10,
+                RoomType = "standard"
+            });
+            rooms.Add(new Room
+            {
+                Id = 2,
+                RoomNumber = "A2",
+                NumberOfBeds = 2,
+                PricePerNight = 20,
+                RoomType = "suite"
+            });
+            rooms.Add(new Room
+            {
+                Id = 3,
+                RoomNumber = "B1",
+                NumberOfBeds = 3,
+                PricePerNight = 50,
+                RoomType = "deluxe"
+            });
+            modelBuilder.Entity<Room>().HasData(rooms);
 
         }
     }

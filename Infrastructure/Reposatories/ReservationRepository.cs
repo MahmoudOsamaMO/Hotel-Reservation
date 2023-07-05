@@ -13,5 +13,17 @@ namespace Infrastructure.Reposatories
         public ReservationRepository(HotelReservationDbContext dbContext) : base(dbContext)
         {
         }
+
+        public async Task<Reservation> ReserveRoom(Reservation reservation)
+        {
+            if (reservation == null)
+                return null;
+            try
+            {
+
+                return reservation;
+            }
+            catch (Exception ex) { throw ex; }
+        }
     }
 }

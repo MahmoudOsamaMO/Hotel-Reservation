@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Application.DTOs;
+using Application.Interfaces;
+using Domain.Models;
+using Microsoft.AspNetCore.Mvc;
+using reserve.hotel.Controllers;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,36 +12,34 @@ namespace hotel.reservation.Api.Controllers
     [ApiController]
     public class ReservationController : ControllerBase
     {
-        // GET: api/<ReservationController>
-        [HttpGet]
-        public IEnumerable<string> Get()
+
+        private readonly ILogger<ReservationController> _logger;
+        private readonly IReservationService _reservationService;
+
+        public ReservationController(ILogger<ReservationController> logger, IReservationService reservationService)
         {
-            return new string[] { "value1", "value2" };
+            _logger = logger;
+            _reservationService = reservationService;
         }
 
-        // GET api/<ReservationController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+
+        [HttpGet(Name = "GetRooms")]
+        public List<Room> GetRooms()
         {
-            return "value";
+            return _reservationService.GetRooms();
         }
 
-        // POST api/<ReservationController>
-        [HttpPost]
-        public void Post([FromBody] string value)
+        [HttpPost(Name = "CreateCustomer")]
+        public bool CreateCustomer(CustomerDTO customerDTO)
         {
+            return _reservationService.CreateCustomer(customerDTO);
         }
 
-        // PUT api/<ReservationController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPost(Name = "CreateReservation")]
+        public bool CreateReservation(ReservationDTO reservationDTO)
         {
+            return _reservationService.CreateReservation(reservationDTO);
         }
 
-        // DELETE api/<ReservationController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }
