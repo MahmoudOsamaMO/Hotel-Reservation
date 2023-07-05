@@ -9,7 +9,7 @@ export class FetchDataComponent {
   public rooms: Rooms[] = [];
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<Rooms[]>(baseUrl + 'reservation').subscribe(result => {
+    http.get<Rooms[]>(baseUrl + 'rooms').subscribe(result => {
       this.rooms = result;
       console.log(result);
     }, error => console.error(error));
